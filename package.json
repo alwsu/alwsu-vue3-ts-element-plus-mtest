@@ -1,0 +1,35 @@
+{
+  "name": "vue3-ts-elementplus",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "element-plus": "^1.0.1-beta.3",
+    "qrcode2": "^1.2.3",
+    "qrcodejs2": "0.0.2",
+    "swiper": "^6.5.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0",
+    "wangeditor": "^4.6.12",
+    "x2js": "^3.4.1",
+    "xgplayer-vue": "^1.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "less": "^4.1.1",
+    "less-loader": "^7.3.0",
+    "typescript": "~3.9.3",
+    "xgplayer": "^2.18.4"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "2445701",
+  "name": "我的视频网站",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8954162",
+      "name": "二维码",
+      "font_class": "erweima",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

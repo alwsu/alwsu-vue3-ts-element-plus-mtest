@@ -33,6 +33,7 @@
             </div>
           </div>
         </el-card>
+
         <el-card class="box-card2">
           <div class="box-card-l-b">
             <div>
@@ -41,8 +42,8 @@
           </div>
         </el-card></div
     ></el-col>
-    <el-col :span="6"
-      ><div class="grid-content bg-purple">
+    <el-col :span="6">
+      <div class="grid-content bg-purple">
         <el-card class="box2-card" :body-style="{ padding: '15px' }">
           <div class="hot-title"><i class="el-icon-s-data"></i>热门视频</div>
           <ul>
@@ -68,8 +69,8 @@
                     <div>未录入 / 大陆</div>
                     <div>高清版</div>
                     <div>人气：<span>5420310</span></div>
-                  </div></el-col
-                >
+                  </div>
+                </el-col>
               </el-row>
             </li>
             <li v-for="o in 9" :key="o" class="hotvideos-item">
@@ -230,11 +231,11 @@ export default defineComponent({
       box-sizing: border-box;
       font-style: italic;
     }
-    &:nth-child(1):hover{
+    &:nth-child(1):hover {
       color: #f90;
       cursor: pointer;
     }
-    &:nth-child(2){
+    &:nth-child(2) {
       color: #f90;
       float: right;
     }

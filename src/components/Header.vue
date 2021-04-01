@@ -127,120 +127,123 @@ export default defineComponent({
 });
 </script>
 
-<style lang='less' scope>
-#logo > img {
-  width: 150px;
-  height: 50px;
-}
-
-.el-row {
-  margin-bottom: 20px;
-}
-.el-row:last-child {
-  margin-bottom: 0;
-}
-.el-col {
-  border-radius: 4px;
-}
-.bg-purple-dark {
-  background: #99a9bf;
-}
-.bg-purple-light {
-  background: #e5e9f2;
-}
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
-}
-.row-bg {
-  padding: 10px 0;
-  background-color: #f9fafc;
-}
-
-.my-autocomplete li {
-  line-height: normal;
-  padding: 7px;
-}
-.my-autocomplete li .name {
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.my-autocomplete li .addr {
-  font-size: 12px;
-  color: #b4b4b4;
-}
-.my-autocomplete li .highlighted .addr {
-  color: #ddd;
-}
-.home-search {
-  cursor: pointer;
-}
-.home-search:hover {
-  color: #f90;
-}
-i {
-  font-size: 24px;
-}
-.menu-left {
-  display: flex;
-  align-items: center;
-  min-height: 61px;
-}
-.menu-left i {
-  cursor: pointer;
-}
-.padding-lr20 {
-  padding: 0 20px;
-}
-.menu-rc {
-  display: flex;
-  align-items: center;
-}
-
-.popover-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #e7e7e7;
-  border-bottom: 1px solid #e7e7e7;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  span {
-    padding: 5px;
-    &:hover {
-      color: #f90;
-      cursor: pointer;
-    }
+<style lang='less'>
+.menu-main{
+  #logo > img {
+    width: 150px;
+    height: 50px;
   }
-}
-.popover-text {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  .text-top {
+  
+  .el-row {
+    margin-bottom: 20px;
+  }
+  .el-row:last-child {
+    margin-bottom: 0;
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+  
+  .my-autocomplete li {
+    line-height: normal;
+    padding: 7px;
+  }
+  .my-autocomplete li .name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .my-autocomplete li .addr {
+    font-size: 12px;
+    color: #b4b4b4;
+  }
+  .my-autocomplete li .highlighted .addr {
+    color: #ddd;
+  }
+  .home-search {
+    cursor: pointer;
+  }
+  .home-search:hover {
     color: #f90;
-    margin-top: 10px;
   }
-  .text-content {
-    margin-top: 10px;
-    h3 {
-      span {
-        font-size: 16px;
-        padding: 0 5px;
+  i {
+    font-size: 24px;
+  }
+  .menu-left {
+    display: flex;
+    align-items: center;
+    min-height: 61px;
+  }
+  .menu-left i {
+    cursor: pointer;
+  }
+  .padding-lr20 {
+    padding: 0 20px;
+  }
+  .menu-rc {
+    display: flex;
+    align-items: center;
+  }
+  
+  .popover-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    span {
+      padding: 5px;
+      &:hover {
+        color: #f90;
+        cursor: pointer;
       }
     }
   }
-  .color-f90 {
+  .popover-text {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    .text-top {
+      color: #f90;
+      margin-top: 10px;
+    }
+    .text-content {
+      margin-top: 10px;
+      h3 {
+        span {
+          font-size: 16px;
+          padding: 0 5px;
+        }
+      }
+    }
+    .color-f90 {
+      color: #f90;
+      text-decoration: none;
+    }
+  }
+  .mpopover {
+    .el-popover {
+      padding: 0 !important;
+    }
+  }
+  .hover-clf90:hover {
     color: #f90;
-    text-decoration: none;
   }
-}
-.mpopover {
-  .el-popover {
-    padding: 0 !important;
-  }
-}
-.hover-clf90:hover {
-  color: #f90;
+
 }
 </style>

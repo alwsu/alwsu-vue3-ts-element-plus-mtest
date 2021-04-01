@@ -40,6 +40,10 @@ export default defineComponent({
           padding-right: 15px;
           font-size: 14px;
           margin-top: 10px;
+          &:hover{
+            color: #f90;
+            cursor: pointer;
+          }
         }
       }
   }

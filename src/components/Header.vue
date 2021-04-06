@@ -1,21 +1,22 @@
 <template>
-
   <div class="menu-main">
     <el-row :gutter="20">
-      <el-col :xs="16" :sm="16" :md="14"
+      <el-col :span="22"
         ><div class="grid-content bg-purple menu-rc">
           <h1 id="logo">
             <img src="~@/assets/img/logo.png" alt="logo" />
           </h1>
           <Menu />
           <div class="mDialog">
+            
             <el-autocomplete
               popper-class="my-autocomplete"
               v-model="state"
               :fetch-suggestions="querySearch"
               placeholder="请输入内容"
-              @select="handleSelect2"
-            >
+              @select="handleSelect" 
+              :trigger-on-focus="false"
+              >
               <template #suffix>
                 <i
                   class="el-icon-search el-input__icon home-search"
@@ -24,14 +25,13 @@
                 </i>
               </template>
               <template #default="{ item }">
-                <div class="name">{{ item.value }}</div>
-                <span class="addr">{{ item.address }}</span>
+                <div class="name">{{ item.name }}</div>
               </template>
             </el-autocomplete>
           </div>
         </div>
       </el-col>
-      <el-col :span="4" :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+      <el-col :span="2">
         <div class="bg-purple menu-left">
           <div class="mpopover">
             <el-popover
@@ -71,54 +71,48 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref, onMounted } from "vue";
 import Menu from "@/components/Menu.vue";
+import { queryVideoInfo } from "@/api/index.js";
+
 export default defineComponent({
   name: "Header",
   components: {
     Menu,
   },
   setup() {
+    const state = ref("");
     const visible = ref(false);
-    const restaurants: any = ref([]);
-    const querySearch = (queryString: any, cb: any) => {
-      var results = queryString
-        ? restaurants.value.filter(createFilter(queryString))
-        : restaurants.value;
-      // 调用 callback 返回建议列表的数据
-      cb(results);
+    const restaurants = ref([]);
+
+    const querySearch = (queryString,cb) => {
+      if(queryString){
+        const name=queryString
+        queryVideoInfo({name}).then(res=>{
+          if(res&&res.data.status=='0'){
+            restaurants.value = res.data.data;
+            cb(restaurants.value);
+          }
+        })
+      }
     };
-    const createFilter = (queryString: string) => {
-      return (restaurant: any) => {
-        return (
-          restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) ===
-          0
-        );
-      };
-    };
-    const loadAll = () => {
-      return [{ value: "三全鲜食（北新泾店）", address: "长宁区新渔路144号" }];
-    };
-    const handleSelect2 = (item: any) => {
-      console.log(item);
+    const handleSelect = (item) => {
+      state.value=item.name;
     };
 
-    const handleIconClick = (ev: any) => {
+    const handleIconClick = (ev) => {
       console.log(ev);
     };
     const flag = ref(false);
     onMounted(() => {
-      restaurants.value = loadAll();
     });
 
     return {
       restaurants,
-      state: ref(""),
+      state,
       querySearch,
-      createFilter,
-      loadAll,
-      handleSelect2,
+      handleSelect,
       handleIconClick,
       visible,
       flag,
@@ -128,12 +122,14 @@ export default defineComponent({
 </script>
 
 <style lang='less'>
-.menu-main{
+.menu-main {
+  padding: 0 20px;
   #logo > img {
     width: 150px;
     height: 50px;
+    margin-right: 15px;
   }
-  
+
   .el-row {
     margin-bottom: 20px;
   }
@@ -157,7 +153,7 @@ export default defineComponent({
     padding: 10px 0;
     background-color: #f9fafc;
   }
-  
+
   .my-autocomplete li {
     line-height: normal;
     padding: 7px;
@@ -186,6 +182,7 @@ export default defineComponent({
     display: flex;
     align-items: center;
     min-height: 61px;
+    justify-content: flex-end;
   }
   .menu-left i {
     cursor: pointer;
@@ -197,7 +194,7 @@ export default defineComponent({
     display: flex;
     align-items: center;
   }
-  
+
   .popover-header {
     display: flex;
     justify-content: space-between;
@@ -244,6 +241,5 @@ export default defineComponent({
   .hover-clf90:hover {
     color: #f90;
   }
-
 }
 </style>

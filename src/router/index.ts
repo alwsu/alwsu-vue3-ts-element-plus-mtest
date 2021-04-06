@@ -6,16 +6,33 @@ const routes = [
    
     path: '/',
     name: 'Home',
+    meta: {
+      title: '首页'
+    },
     component: () => import('../views/home.vue')
+  },
+  {
+    path: '/teleplay',
+    name: 'Teleplay',
+    meta: {
+      title: '电视剧'
+    },
+    component: () => import('../views/teleplay/index.vue')
   },
   {
     path: '/movie',
     name: 'Movie',
+    meta: {
+      title: '电影'
+    },
     component: () => import('../views/movie/index.vue')
   },
   {
     path: '/videos/:id',
     name: 'Videos',
+    meta: {
+      title: '视频详情'
+    },
     component: () => import('../views/videos/index.vue')
   },
   {

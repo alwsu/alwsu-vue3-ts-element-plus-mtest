@@ -69,8 +69,8 @@
 <script >
 import { defineComponent, ref, getCurrentInstance, onMounted } from "vue";
 import Breadcrumb from "../Breadcrumb.vue";
-import FlvItem from "@/components/videos/FlvItem.vue";
-import MapItem from "@/components/videos/MapItem.vue";
+import FlvItem from "~@/components/Videos/FlvItem.vue";
+import MapItem from "~@/components/Videos/MapItem.vue";
 import QRCode from "qrcodejs2";
 export default defineComponent({
   name: "CardThirdly",

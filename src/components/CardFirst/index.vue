@@ -8,28 +8,28 @@
       <div class="box-card-right">
         <div class="box-card-right-header">
           <el-row :gutter="20">
-            <el-col :span="6">
+            <el-col :span="6" class="mitem">
               <div class="grid-content bg-purple">
                 <div class="micon"><i class="el-icon-menu"></i></div>
                 <span>全部影片</span>
               </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="6" class="mitem">
               <div class="grid-content bg-purple">
                 <div class="micon"><i class="el-icon-s-data"></i></div>
-                <span>全部影片</span>
+                <span>影片排行</span>
               </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="6" class="mitem">
               <div class="grid-content bg-purple">
                 <div class="micon"><i class="el-icon-star-off"></i></div>
-                <span>全部影片</span>
+                <span>最近更新</span>
               </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="6" class="mitem">
               <div class="grid-content bg-purple">
                 <div class="micon"><i class="el-icon-moon-night"></i></div>
-                <span>全部影片</span>
+                <span>美人视频</span>
               </div>
             </el-col>
           </el-row>
@@ -69,7 +69,7 @@ export default defineComponent({
   },
   setup() {
     const hoverIndex = ref(-1);
-    const gotoIndex = (index:number) => {
+    const gotoIndex = (index: number) => {
       console.log(index);
     };
     return {
@@ -132,6 +132,11 @@ export default defineComponent({
             span {
               color: #fff;
             }
+          }
+        }
+        .mitem {
+          &:hover {
+            cursor: pointer;
           }
         }
       }

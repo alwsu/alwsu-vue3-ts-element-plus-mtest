@@ -1,4 +1,4 @@
-# vue3-ts-elementplus
+# vue3-ts-videos
 
 ## Project setup
 ```

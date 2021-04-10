@@ -36,6 +36,14 @@ const routes = [
     component: () => import('../views/videos/index.vue')
   },
   {
+    path: '/demo',
+    name: 'Demo',
+    meta: {
+      title: 'echarts'
+    },
+    component: () => import('../views/demo.vue')
+  },
+  {
     path: '/:catchAll(.*)',
     name: '/404',
     component: () => import('../views/404.vue')

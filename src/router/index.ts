@@ -36,6 +36,22 @@ const routes = [
     component: () => import('../views/videos/index.vue')
   },
   {
+    path: '/play/:id',
+    name: 'Play',
+    meta: {
+      title: '视频播放'
+    },
+    component: () => import('../views/play/index.vue')
+  },
+  {
+    path: '/scenario/:id',
+    name: 'Scenario',
+    meta: {
+      title: '视频剧情'
+    },
+    component: () => import('../views/videos/index.vue')
+  },
+  {
     path: '/demo',
     name: 'Demo',
     meta: {

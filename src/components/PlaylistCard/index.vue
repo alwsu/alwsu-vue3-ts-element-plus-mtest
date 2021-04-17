@@ -3,8 +3,17 @@
     <div class="playlist-box-l">
       <div class="playlist-box-l-header">
         <div class="header-l">
-          <span class="header-l-item youkubgi action">优酷</span>
-          <span class="header-l-item huashubgi">华数</span>
+          <span
+            :class="[
+              'header-l-item',
+              `${ite.name}bgi`,
+              actionFlag == ite.name ? 'action' : '',
+            ]"
+            v-for="(ite, ind) in list"
+            :key="ite.name"
+            @click="videosHadele(ite, ind)"
+            >{{ ite.cname }}</span
+          >
         </div>
         <div class="header-r">
           <i class="el-icon-message"></i>不能播放，报错
@@ -12,7 +21,9 @@
       </div>
       <div class="playlist-box-l-content">
         <ul>
-          <li v-for="item in 12" :key="item">第{{ 12 - item + 1 }}集</li>
+          <li v-for="item in 12" :key="item" @click="playHandle(item)">
+            第{{ 12 - item + 1 }}集
+          </li>
         </ul>
       </div>
     </div>
@@ -62,9 +73,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import router from '@/router/index';
 export default defineComponent({
   name: "PlaylistCard",
+  setup() {
+    const actionFlag = ref("youku");
+    const list = ref([
+      { name: "youku", cname: "优酷" },
+      { name: "huashu", cname: "华数" },
+    ]);
+    const videosHadele = (item: any, index: number) => {
+      actionFlag.value=item.name;
+    };
+    const playHandle=(item:number)=>{
+      router.push({name:'Play',params:{id:item}});
+    };
+    return { actionFlag, list,videosHadele,playHandle };
+  },
 });
 </script>
 
@@ -133,6 +159,10 @@ export default defineComponent({
           border-radius: 5px;
           &:hover {
             cursor: pointer;
+            background-color: #f90;
+            color: #fff;
+          }
+          &.action {
             background-color: #f90;
             color: #fff;
           }

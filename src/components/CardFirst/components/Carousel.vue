@@ -14,6 +14,7 @@
 import { defineComponent, onMounted, ref } from "vue";
 import { getinfo } from "@/api/index.js";
 import { ElMessage } from "element-plus";
+import router from "@/router/index";
 export default defineComponent({
   name: "Carousel",
   setup() {
@@ -32,7 +33,8 @@ export default defineComponent({
       });
     };
     const jumpTo = (item) => {
-      console.log('item000000',item);
+      router.push({name:"Videos",params: {id:item.id}});
+
     };
     onMounted(() => {
       _getinfo();

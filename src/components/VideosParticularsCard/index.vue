@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="tabs">
-      <li v-for="item in 2" :key="item">视频详情</li>
+      <li v-for="(item,index) in tabList" :key="item" @click="tabsHandle(item,index)" :class="maction==index?'action':''">视频详情</li>
     </ul>
     <div class="content">
       <div class="content-l">
@@ -93,11 +93,37 @@
 </template>
 
 <script >
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import QRCode from "qrcodejs2";
+import { getCurrentInstance } from "vue";//当前组件实例
+import router from "@/router/index";
 export default defineComponent({
   name: "VideosParticularsCard",
   setup() {
+    const tabList=ref(['videos','scenario']);
+    const maction = ref(0);
+    //tabs切换 
+    const { ctx } = getCurrentInstance();//实例化当前组件
+    const activePath = ref("/"),
+    tabsHandle=(item,index)=>{
+      if(index==0){
+        maction.value=0;
+        router.push({name:"Videos",params: {id:index}});
+      }else{
+        maction.value=1;
+        router.push({name:"Scenario",params: {id:index}});
+      }
+    };
+    onMounted(()=>{
+      const pathName=ctx.$router.currentRoute.value.name;
+      if(pathName=='Videos'){
+         maction.value=0;
+      }else{
+        maction.value=1;
+      }
+    });
+
+
     // 评星
     const rateValue = ref(null);
     const footerList = ref([
@@ -152,7 +178,7 @@ export default defineComponent({
       hoverShow,
       hoverHiden,
       rateValue,
-      format,
+      format,tabList,tabsHandle,maction
     };
   },
 });
@@ -171,7 +197,7 @@ export default defineComponent({
       background-color: #f90;
       cursor: pointer;
     }
-    .action {
+    &.action {
       color: #fff;
       background-color: #f90;
     }

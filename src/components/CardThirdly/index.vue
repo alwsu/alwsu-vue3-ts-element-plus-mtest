@@ -58,7 +58,7 @@
         </div>
         <div class="item card-list-r-content">
           <ul class="content-list">
-            <li v-for="o in 24" :key="o" class="content-item">第1集</li>
+            <li v-for="o in 24" :key="o" class="content-item">第{{24-o+1}}集</li>
           </ul>
         </div>
       </el-col>
@@ -69,8 +69,8 @@
 <script >
 import { defineComponent, ref, getCurrentInstance, onMounted } from "vue";
 import Breadcrumb from "../Breadcrumb.vue";
-import FlvItem from "~@/components/Videos/FlvItem.vue";
-import MapItem from "~@/components/Videos/MapItem.vue";
+import FlvItem from "@/components/Videos/FlvItem.vue";
+import MapItem from "@/components/Videos/MapItem.vue";
 import QRCode from "qrcodejs2";
 export default defineComponent({
   name: "CardThirdly",
@@ -219,6 +219,7 @@ export default defineComponent({
   background-repeat: no-repeat;
   background-position: 15px -527px;
   padding-left: 35px;
+  white-space: nowrap;
 }
 
 .content-list {

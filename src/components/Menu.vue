@@ -8,11 +8,11 @@
     <el-menu-item index="/home" class="mmenu-item"> 首页 </el-menu-item>
     <el-menu-item index="/teleplay"> 电视剧 </el-menu-item>
     <el-menu-item index="/movie">电影</el-menu-item>
-    <el-menu-item index="/movie">动漫</el-menu-item>
-    <el-menu-item index="/movie">综艺</el-menu-item>
-    <el-menu-item index="/movie">电视直播</el-menu-item>
-    <el-menu-item index="/movie">新闻</el-menu-item>
-    <el-menu-item index="/movie">网络电影</el-menu-item>
+    <el-menu-item index="/cartoon">动漫</el-menu-item>
+    <el-menu-item index="/variety">综艺</el-menu-item>
+    <el-menu-item index="/tvlive">电视直播</el-menu-item>
+    <el-menu-item index="/journalism">新闻</el-menu-item>
+    <el-menu-item index="/networkmovie">网络电影</el-menu-item>
     <el-submenu index="2">
       <template #title>更多</template>
       <el-menu-item index="2-1">明星</el-menu-item>
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, ref, watch } from "vue";
 import router from "@/router/index";
 export default defineComponent({
   name: "Menu",
@@ -40,14 +40,13 @@ export default defineComponent({
       };
     const filterPath = () => {
       const path = ref(window.location.pathname);
-      console.log("path", path.value);
-
       if (path.value == "/") {
-        activeIndex.value = "/home";
+        menuHandle("/home");
       } else {
-        activeIndex.value = path.value;
+        menuHandle(path.value);
       }
     };
+
     onMounted(() => {
       filterPath();
     });
@@ -64,17 +63,16 @@ export default defineComponent({
 .el-menu-demo {
   display: flex;
   justify-content: space-between;
-  .el-menu-item:hover{
+  .el-menu-item:hover {
     color: #f90 !important;
   }
-  li.is-active{
+  li.is-active {
     background-color: #f90 !important;
     color: #fff !important;
     border: none !important;
-    &:hover{
+    &:hover {
       color: #fff !important;
     }
   }
-  
 }
 </style>
